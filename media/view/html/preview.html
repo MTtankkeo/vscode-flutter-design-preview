@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; frame-src http://localhost:{{port}} http://127.0.0.1:{{port}}; style-src {{cspSource}}; script-src 'nonce-{{nonce}}';"
+    />
+    <link rel="stylesheet" href="{{styleUri}}" />
+  </head>
+  <body>
+    <div id="preview-browser">
+      <input id="preview-search" type="search" />
+      <div id="preview-tree"></div>
+    </div>
+    <div id="top-splitter" class="panel-splitter"></div>
+    <div id="preview-content">
+      <div id="preview-frame">
+        <iframe
+          src="{{url}}"
+          title="Flutter Widget Preview"
+          allowtransparency="true"
+        ></iframe>
+      </div>
+    </div>
+    <div id="bottom-splitter" class="panel-splitter"></div>
+    <div id="preview-controls">
+      <h2 id="controls-title"></h2>
+      <div id="runtime-controls">
+        <label class="control">
+          <span id="theme-label" class="control-label"></span>
+          <select id="theme-control" class="control-input">
+            <option value="system"></option>
+            <option value="light"></option>
+            <option value="dark"></option>
+          </select>
+        </label>
+      </div>
+      <div id="controls-list"><div id="controls-empty"></div></div>
+    </div>
+    <script id="preview-data" type="application/json" nonce="{{nonce}}">
+      {{previewData}}
+    </script>
+    <script nonce="{{nonce}}" src="{{scriptUri}}"></script>
+  </body>
+</html>

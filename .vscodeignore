@@ -1,0 +1,9 @@
+.vscode/**
+src/**
+.gitattributes
+.gitignore
+tsconfig.json
+**/*.map
+media/flutter/.dart_tool/**
+media/flutter/pubspec.yaml
+media/flutter/pubspec.lock

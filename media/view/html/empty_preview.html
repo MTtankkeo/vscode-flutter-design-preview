@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src {{cspSource}}; script-src 'nonce-{{nonce}}';"
+    />
+    <link rel="stylesheet" href="{{styleUri}}" />
+  </head>
+  <body>
+    <main>
+      <p>{{openPrompt}}</p>
+      <button id="open-preview" type="button">{{openPreview}}</button>
+    </main>
+    <script nonce="{{nonce}}">
+      const vscode = acquireVsCodeApi();
+      document.getElementById("open-preview").addEventListener("click", () => {
+        vscode.postMessage({ command: "openPreview" });
+      });
+    </script>
+  </body>
+</html>

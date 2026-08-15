@@ -1,0 +1,13 @@
+name: flutter_widget_preview_runner
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{projectPackage}}:
+    path: {{projectPath}}
+
+flutter:
+  uses-material-design: true

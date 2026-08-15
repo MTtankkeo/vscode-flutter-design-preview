@@ -1,0 +1,6 @@
+{
+  "extension.displayName": "Flutter Widget Preview",
+  "extension.description": "VS Code 안에서 Flutter 위젯을 실시간으로 확인하고 테스트하고 상호작용하세요.",
+  "command.open": "Flutter Widget Preview: 열기",
+  "viewContainer.title": "Flutter Widget Preview"
+}

@@ -1,0 +1,16 @@
+name: flutter_widget_preview
+description: "Preview, test, and interact with Flutter widgets in real time inside VS Code."
+version: 1.0.0
+
+environment:
+  sdk: '>=3.12.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
