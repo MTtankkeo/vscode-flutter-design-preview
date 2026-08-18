@@ -2,6 +2,8 @@
 
 Develop, test, and interact with Flutter widgets directly inside VS Code. Iterate faster with instant Hot Reload as you build and refine your UI.
 
+![sample](https://github.com/MTtankkeo/vscode-flutter-widget-preview/raw/refs/heads/main/media/images/sample.png)
+
 ## Features
 
 - 🖼️ Preview Flutter widgets without launching the full application
