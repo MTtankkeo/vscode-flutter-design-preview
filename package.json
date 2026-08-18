@@ -1,9 +1,13 @@
 {
-  "name": "flutter-widget-preview",
+  "name": "vscode-flutter-widget-preview",
   "displayName": "%extension.displayName%",
   "description": "%extension.description%",
   "version": "1.0.0",
   "publisher": "mttankkeo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MTtankkeo/vscode-flutter-widget-preview.git"
+  },
   "icon": "media/icons/flutter.png",
   "license": "MIT",
   "engines": {
@@ -52,7 +56,8 @@
     "watch": "tsc -watch -p ./",
     "check": "tsc --noEmit -p ./",
     "format": "prettier \"**/*.{ts,js,json,html,css,md}\" \".github/workflows/**/*.{yml,yaml}\" --write",
-    "format:check": "prettier \"**/*.{ts,js,json,html,css,md}\" \".github/workflows/**/*.{yml,yaml}\" --check"
+    "format:check": "prettier \"**/*.{ts,js,json,html,css,md}\" \".github/workflows/**/*.{yml,yaml}\" --check",
+    "publish": "npx.cmd @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
