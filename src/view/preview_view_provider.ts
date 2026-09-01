@@ -16,7 +16,7 @@ interface PreviewViewContent {
 }
 
 /**
- * Owns the Flutter Widget Preview sidebar and renders it from the current runner state.
+ * Owns the Flutter Design Preview sidebar and renders it from the current runner state.
  * The provider keeps its state even while VS Code has not created the view yet.
  */
 export class PreviewViewProvider implements vscode.WebviewViewProvider {
@@ -125,7 +125,7 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
     );
   }
 
-  /** Renders either the empty state or the active Flutter Widget Preview from templates. */
+  /** Renders either the empty state or the active Flutter Design Preview from templates. */
   private async render(): Promise<void> {
     if (!this.view) return;
     if (!this.content) {

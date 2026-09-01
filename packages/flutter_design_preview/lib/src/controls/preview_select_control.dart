@@ -1,4 +1,4 @@
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// A selection control containing every enum value supplied in [values].
 class PreviewSelectControl<T extends Enum> extends PreviewControl<T> {
@@ -11,7 +11,7 @@ class PreviewSelectControl<T extends Enum> extends PreviewControl<T> {
     required this.values,
   });
 
-  /// The options displayed in the Flutter Widget Preview control, in display order.
+  /// The options displayed in the Flutter Design Preview control, in display order.
   final List<T> values;
 
   @override

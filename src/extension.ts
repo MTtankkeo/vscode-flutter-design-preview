@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // Compose the extension's long-lived services when VS Code activates it.
   const view = new PreviewViewProvider(uri);
-  const output = vscode.window.createOutputChannel("Flutter Widget Preview");
+  const output = vscode.window.createOutputChannel("Flutter Design Preview");
   const application = new PreviewApplication(view, output, uri);
 
   // Connect the contributed Open command to the preview workflow.
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext): void {
   );
 
   // Keep the command and view registered for the extension lifetime, then stop
-  // the Flutter Widget Preview session and release its UI resources during deactivation.
+  // the Flutter Design Preview session and release its UI resources during deactivation.
   context.subscriptions.push(
     output,
     application,

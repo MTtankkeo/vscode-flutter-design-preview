@@ -1,4 +1,4 @@
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// A numeric control for changing a decimal value in the preview.
 class PreviewDoubleControl extends PreviewControl<double> {
@@ -12,10 +12,10 @@ class PreviewDoubleControl extends PreviewControl<double> {
     this.maxValue,
   });
 
-  /// The optional lower bound shown by the Flutter Widget Preview control.
+  /// The optional lower bound shown by the Flutter Design Preview control.
   final double? minValue;
 
-  /// The optional upper bound shown by the Flutter Widget Preview control.
+  /// The optional upper bound shown by the Flutter Design Preview control.
   final double? maxValue;
 
   @override

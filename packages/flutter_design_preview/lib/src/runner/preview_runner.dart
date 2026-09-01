@@ -5,13 +5,13 @@ import 'dart:convert';
 import 'dart:html' as html;
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
-/// Hosts discovered Flutter Widget Preview entries and connects them to the VS Code panel.
+/// Hosts discovered Flutter Design Preview entries and connects them to the VS Code panel.
 ///
 /// This widget receives toolbar and control updates from the parent webview,
 /// then sends the currently available controls back after Flutter finishes
-/// a frame. Generated Flutter Widget Preview applications create this widget automatically.
+/// a frame. Generated Flutter Design Preview applications create this widget automatically.
 class PreviewRunner extends StatefulWidget {
   const PreviewRunner({
     super.key,
@@ -23,7 +23,7 @@ class PreviewRunner extends StatefulWidget {
   /// The preview selected when the runner starts.
   final String initialId;
 
-  /// All discovered Flutter Widget Preview entries, keyed by their generated identifiers.
+  /// All discovered Flutter Design Preview entries, keyed by their generated identifiers.
   final Map<String, PreviewWidget> widgets;
 
   /// Wraps the selected preview in the user's shared app layout.
@@ -113,7 +113,7 @@ class _PreviewRunnerState extends State<PreviewRunner> {
     }
   }
 
-  /// Applies a serialized control value to the selected Flutter Widget Preview's control.
+  /// Applies a serialized control value to the selected Flutter Design Preview's control.
   void _updateControl(Map<Object?, Object?> message) {
     final Object? id = message['id'];
     if (id is String) controlsController.update(id, message['value']);
@@ -163,7 +163,7 @@ class _PreviewRunnerState extends State<PreviewRunner> {
 
   @override
   void dispose() {
-    // The browser subscription and per-Flutter Widget Preview controllers outlive individual
+    // The browser subscription and per-Flutter Design Preview controllers outlive individual
     // builds, so release all of them when the runner leaves the widget tree.
     messageSubscription.cancel();
 

@@ -1,4 +1,4 @@
-name: flutter_widget_preview_runner
+name: flutter_design_preview_runner
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

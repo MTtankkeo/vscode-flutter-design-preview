@@ -1,8 +1,8 @@
 {
   "projectNotFound": "Could not find a Flutter project. Open a folder containing pubspec.yaml.",
-  "starting": "Starting Flutter Widget Preview…",
+  "starting": "Starting Flutter Design Preview…",
   "noWidgets": "No classes extending PreviewWidget were found in the lib folder.",
-  "previewFailed": "Flutter Widget Preview failed: {error}",
+  "previewFailed": "Flutter Design Preview failed: {error}",
   "startupTimeout": "The Flutter app did not start within 120 seconds.",
   "processExited": "The Flutter process exited (exit code {code}).",
   "packageNameNotFound": "Could not find a valid package name in pubspec.yaml.",

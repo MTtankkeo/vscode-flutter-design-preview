@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// Makes a [PreviewController] available to widgets in one preview.
 ///
@@ -12,7 +12,7 @@ class PreviewScope extends InheritedNotifier<PreviewController> {
     required super.child,
   }) : super(notifier: controller);
 
-  /// Returns the controller belonging to the nearest Flutter Widget Preview runner.
+  /// Returns the controller belonging to the nearest Flutter Design Preview runner.
   ///
   /// Throws a [StateError] when called outside a [PreviewScope].
   static PreviewController of(BuildContext context) {

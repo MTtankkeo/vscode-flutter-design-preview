@@ -1,8 +1,8 @@
 {
   "projectNotFound": "Flutter 프로젝트를 찾지 못했습니다. pubspec.yaml이 있는 폴더를 열어주세요.",
-  "starting": "Flutter Widget Preview를 시작하는 중…",
+  "starting": "Flutter Design Preview를 시작하는 중…",
   "noWidgets": "lib 폴더에서 PreviewWidget을 상속한 클래스를 찾지 못했습니다.",
-  "previewFailed": "Flutter Widget Preview 실행 실패: {error}",
+  "previewFailed": "Flutter Design Preview 실행 실패: {error}",
   "startupTimeout": "Flutter 앱이 120초 안에 시작되지 않았습니다.",
   "processExited": "Flutter 프로세스가 종료되었습니다 (exit code {code}).",
   "packageNameNotFound": "pubspec.yaml에서 유효한 package name을 찾지 못했습니다.",

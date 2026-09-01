@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { FlutterPreviewSession } from "../flutter/flutter_widget_preview_session.js";
+import { FlutterPreviewSession } from "../flutter/flutter_preview_session.js";
 import { messages } from "../localization.js";
 import { PreviewViewProvider } from "../view/preview_view_provider.js";
 import { FlutterProjectLocator } from "../flutter/flutter_project_locator.js";

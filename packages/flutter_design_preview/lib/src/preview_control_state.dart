@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// Holds the current value of a [PreviewControl].
 ///
-/// [mayBeValue] is the explicit value selected in the Flutter Widget Preview UI.
+/// [mayBeValue] is the explicit value selected in the Flutter Design Preview UI.
 /// [value] returns that value when available, otherwise it falls back to [defaultValue].
 class PreviewControlState<T> extends ValueNotifier<T?> {
   PreviewControlState({

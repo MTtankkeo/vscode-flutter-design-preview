@@ -1,4 +1,4 @@
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// A toggle control for changing a boolean value in the preview.
 class PreviewBooleanControl extends PreviewControl<bool> {

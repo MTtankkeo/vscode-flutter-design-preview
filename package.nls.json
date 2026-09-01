@@ -1,6 +1,6 @@
 {
-  "extension.displayName": "Flutter Widget Preview",
+  "extension.displayName": "Flutter Design Preview",
   "extension.description": "Develop, test, and interact with Flutter widgets in real time inside VS Code.",
-  "command.open": "Flutter Widget Preview: Open",
-  "viewContainer.title": "Flutter Widget Preview"
+  "command.open": "Flutter Design Preview: Open",
+  "viewContainer.title": "Flutter Design Preview"
 }

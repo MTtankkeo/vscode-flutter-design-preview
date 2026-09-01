@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: packages/flutter_widget_preview
+        working-directory: packages/flutter_design_preview
 
     steps:
       - uses: actions/checkout@v4

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 export 'controls/preview_boolean_control.dart';
 export 'controls/preview_color_control.dart';
@@ -8,10 +8,10 @@ export 'controls/preview_select_control.dart';
 export 'controls/preview_integer_control.dart';
 export 'controls/preview_string_control.dart';
 
-/// Describes a value that can be changed from the Flutter Widget Preview control panel.
+/// Describes a value that can be changed from the Flutter Design Preview control panel.
 ///
-/// Call [of] inside a Flutter Widget Preview's build method to read the current value.
-/// The Flutter Widget Preview runner keeps that value in sync with the control shown.
+/// Call [of] inside a Flutter Design Preview's build method to read the current value.
+/// The Flutter Design Preview runner keeps that value in sync with the control shown.
 abstract class PreviewControl<T> {
   const PreviewControl({
     this.key,
@@ -57,24 +57,24 @@ abstract class PreviewControl<T> {
   /// Optional supporting text shown with the control.
   final String description;
 
-  /// The control type understood by the Flutter Widget Preview UI.
+  /// The control type understood by the Flutter Design Preview UI.
   String get kind;
 
-  /// The identifier used to exchange updates with the Flutter Widget Preview UI.
+  /// The identifier used to exchange updates with the Flutter Design Preview UI.
   String get id => key ?? '$runtimeType:$displayName';
 
-  /// Additional control metadata sent to the Flutter Widget Preview UI.
+  /// Additional control metadata sent to the Flutter Design Preview UI.
   Map<String, Object?> get metaData => const {};
 
-  /// Converts a typed value into the text exchanged with the Flutter Widget Preview UI.
+  /// Converts a typed value into the text exchanged with the Flutter Design Preview UI.
   String serialize(T value) => value.toString();
 
-  /// Converts text received from the Flutter Widget Preview UI back into a typed value.
+  /// Converts text received from the Flutter Design Preview UI back into a typed value.
   T deserialize(String value) => value as T;
 
   /// Returns the state for this control and rebuilds dependents when it changes.
   ///
-  /// This must be called below the Flutter Widget Preview runner's controls scope.
+  /// This must be called below the Flutter Design Preview runner's controls scope.
   PreviewControlState<T> of(BuildContext context) {
     return PreviewScope.of(context).stateOf(this);
   }

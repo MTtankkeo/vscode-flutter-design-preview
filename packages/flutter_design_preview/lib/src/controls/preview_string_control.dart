@@ -1,4 +1,4 @@
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// A text control for changing a [String] value in the preview.
 class PreviewStringControl extends PreviewControl<String> {
@@ -11,7 +11,7 @@ class PreviewStringControl extends PreviewControl<String> {
     this.maxLength,
   });
 
-  /// The maximum number of characters accepted by the Flutter Widget Preview control.
+  /// The maximum number of characters accepted by the Flutter Design Preview control.
   final int? maxLength;
 
   @override

@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { FlutterProcess } from "./flutter_process.js";
 import { FlutterHotReloadWatcher } from "./flutter_hot_reload_watcher.js";
 
-/** Connection details for the Flutter Web server started by a Flutter Widget Preview session. */
+/** Connection details for the Flutter Web server started by a Flutter Design Preview session. */
 export interface FlutterPreviewStartResult {
   port: number;
   url: string;
@@ -15,7 +15,7 @@ export class FlutterPreviewSession implements vscode.Disposable {
 
   constructor(private readonly output: vscode.OutputChannel) {}
 
-  /** Replaces the current session with a newly started Flutter Widget Preview. */
+  /** Replaces the current session with a newly started Flutter Design Preview. */
   async start(
     projectRoot: string,
     runnerRoot: string,

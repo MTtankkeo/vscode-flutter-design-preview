@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// A color picker for changing a [Color] value in the preview.
 ///
-/// Colors are exchanged with the Flutter Widget Preview UI as six-digit RGB hex strings.
+/// Colors are exchanged with the Flutter Design Preview UI as six-digit RGB hex strings.
 /// Alpha values are intentionally treated as fully opaque.
 class PreviewColorControl extends PreviewControl<Color> {
   const PreviewColorControl({

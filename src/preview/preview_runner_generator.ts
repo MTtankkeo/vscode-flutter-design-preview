@@ -8,7 +8,7 @@ import { widgetId, type PreviewBuilder, type PreviewWidget } from "./models.js";
 export class PreviewRunnerGenerator {
   constructor(private readonly extensionUri: vscode.Uri) {}
 
-  /** Writes a runnable project under `.dart_tool/flutter_widget_preview`. */
+  /** Writes a runnable project under `.dart_tool/flutter_design_preview`. */
   async generate(
     projectRoot: string,
     widgets: PreviewWidget[],
@@ -17,7 +17,7 @@ export class PreviewRunnerGenerator {
     const runner = path.join(
       projectRoot,
       ".dart_tool",
-      "flutter_widget_preview",
+      "flutter_design_preview",
     );
 
     const libDirectory = path.join(runner, "lib");

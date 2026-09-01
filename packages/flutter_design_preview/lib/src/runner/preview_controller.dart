@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 /// Owns the control values for a single widget entry.
 ///
@@ -33,7 +33,7 @@ class PreviewController extends ChangeNotifier {
     return newState;
   }
 
-  /// Applies a serialized value received from the Flutter Widget Preview UI.
+  /// Applies a serialized value received from the Flutter Design Preview UI.
   ///
   /// Returns `false` when the control does not exist or
   /// the value cannot be converted to the control's Dart type.

@@ -1,12 +1,12 @@
 {
-  "name": "vscode-flutter-widget-preview",
+  "name": "vscode-flutter-design-preview",
   "displayName": "%extension.displayName%",
   "description": "%extension.description%",
   "version": "1.0.0",
   "publisher": "mttankkeo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MTtankkeo/vscode-flutter-widget-preview.git"
+    "url": "https://github.com/MTtankkeo/vscode-flutter-design-preview.git"
   },
   "icon": "media/icons/flutter.png",
   "license": "MIT",

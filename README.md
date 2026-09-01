@@ -2,7 +2,7 @@
 
 Develop, test, and interact with Flutter widgets directly inside VS Code. Iterate faster with instant Hot Reload as you build and refine your UI.
 
-![sample](https://github.com/MTtankkeo/vscode-flutter-widget-preview/raw/refs/heads/main/media/images/sample.png)
+![sample](https://github.com/MTtankkeo/vscode-flutter-design-preview/raw/refs/heads/main/media/images/sample.png)
 
 ## Features
 
@@ -28,10 +28,10 @@ Until the package is published, reference this repository from your app's `pubsp
 
 ```yaml
 dependencies:
-  flutter_widget_preview:
+  flutter_design_preview:
     git:
-      url: https://github.com/MTtankkeo/vscode-flutter-widget-preview.git
-      path: packages/flutter_widget_preview
+      url: https://github.com/MTtankkeo/vscode-flutter-design-preview.git
+      path: packages/flutter_design_preview
 ```
 
 ### 2. Create a preview
@@ -40,7 +40,7 @@ Add a `PreviewWidget` subclass anywhere under your project's `lib` directory:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 class PrimaryButtonPreview extends PreviewWidget {
   static const label = PreviewControl.string(...);
@@ -77,7 +77,7 @@ Declare one top-level function with `@preview` when previews need your applicati
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_preview/flutter_widget_preview.dart';
+import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 @preview
 Widget buildPreviewApp(PreviewWidget widget) {

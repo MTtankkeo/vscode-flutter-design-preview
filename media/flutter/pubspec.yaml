@@ -5,8 +5,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_widget_preview:
-    path: ../../packages/flutter_widget_preview
+  flutter_design_preview:
+    path: ../../packages/flutter_design_preview
 
 flutter:
   uses-material-design: true
