@@ -6,19 +6,13 @@ Develop, test, and interact with Flutter widgets directly inside VS Code. Iterat
 
 ## Features
 
-- 🖼️ Preview Flutter widgets without launching the full application
-
-- 🔍 Discover every class that extends `PreviewWidget`
-
-- 🗂️ Organize previews with display names and optional groups
-
-- 🌓 Switch between system, light, and dark themes
-
-- 🎛️ Change widget values from interactive boolean, color, number, select, and text controls
-
-- ⚡ Hot Reload ordinary Dart changes and Hot Restart when the preview registry changes
-
-- 🧩 Supply a shared `MaterialApp`, theme, localization, or app shell with `@preview`
+| Type            | Content                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 🖼️ Live preview | Preview Flutter widgets without launching the full application, with Hot Reload for Dart changes and Hot Restart for registry changes. |
+| 🗂️ Discovery    | Automatically discover `PreviewWidget` classes and organize them with display names and nested groups.                                 |
+| 🎛️ Controls     | Interactively change boolean, color, number, select, and text values.                                                                  |
+| 🧩 Customize    | Supply a shared `MaterialApp`, theme, localization, or app shell with `@preview`, and switch between system, light, and dark themes.   |
+| 🌐 Languages    | English, 한국어, 简体中文, 日本語, Português (Brasil), and Español.                                                                    |
 
 ## Usage
 

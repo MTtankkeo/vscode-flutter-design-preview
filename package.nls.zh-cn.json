@@ -1,0 +1,6 @@
+{
+  "extension.displayName": "Flutter Design Preview",
+  "extension.description": "直接在 VS Code 中实时开发、测试 Flutter Widget 并与其交互。",
+  "command.open": "Flutter Design Preview: 打开",
+  "viewContainer.title": "Flutter Design Preview"
+}
