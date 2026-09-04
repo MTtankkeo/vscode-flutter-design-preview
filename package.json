@@ -1,5 +1,5 @@
 {
-  "name": "vscode-flutter-design-preview",
+  "name": "flutter-design-preview",
   "displayName": "%extension.displayName%",
   "description": "%extension.description%",
   "version": "1.0.0",
