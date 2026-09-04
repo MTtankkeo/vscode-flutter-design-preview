@@ -27,6 +27,13 @@ export function activate(context: vscode.ExtensionContext): void {
   const viewRegistration = vscode.window.registerWebviewViewProvider(
     "flutterWidgetPreview.view",
     view,
+    {
+      webviewOptions: {
+        // Keep the Flutter iframe, controls, and expanded tree groups
+        // intact while the user switches to another Activity Bar view.
+        retainContextWhenHidden: true,
+      },
+    },
   );
 
   // Keep the command and view registered for the extension lifetime, then stop

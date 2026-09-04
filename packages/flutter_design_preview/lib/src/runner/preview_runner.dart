@@ -103,10 +103,7 @@ class _PreviewRunnerState extends State<PreviewRunner> {
     _postMessage({
       'type': 'previewRegistry',
       'widgets': widget.widgets.entries.map((entry) {
-        final groups = entry.value.groups
-            .map((group) => group.trim())
-            .where((group) => group.isNotEmpty)
-            .toList();
+        final groups = entry.value.groups.map((group) => group.trim()).where((group) => group.isNotEmpty).toList();
 
         return {
           'id': entry.key,
