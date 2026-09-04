@@ -64,6 +64,13 @@ class _PreviewRunnerState extends State<PreviewRunner> {
     // for commands as soon as this widget enters the tree.
     selectedId = widget.initialId;
     messageSubscription = html.window.onMessage.listen(_handleMessage);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _postRegistry());
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    _postRegistry();
   }
 
   /// Decodes a host message and dispatches each supported protocol command.
@@ -80,12 +87,34 @@ class _PreviewRunnerState extends State<PreviewRunner> {
           'setBrightness' => _setBrightness(message),
           'selectWidget' => _selectWidget(message),
           'updateControl' => _updateControl(message),
+          'requestRegistry' => _postRegistry(),
           _ => () => debugPrint(message.toString()),
         };
       }
     } on FormatException {
       return;
     }
+  }
+
+  /// Publishes metadata evaluated by Dart from the live preview instances.
+  void _postRegistry() {
+    if (!mounted) return;
+
+    _postMessage({
+      'type': 'previewRegistry',
+      'widgets': widget.widgets.entries.map((entry) {
+        final groups = entry.value.groups
+            .map((group) => group.trim())
+            .where((group) => group.isNotEmpty)
+            .toList();
+
+        return {
+          'id': entry.key,
+          'name': entry.value.displayName,
+          'groups': groups,
+        };
+      }).toList(),
+    });
   }
 
   /// Applies the theme mode and system brightness selected in the host toolbar.

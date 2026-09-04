@@ -161,12 +161,6 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
       portMapping: [{ webviewPort: port, extensionHostPort: port }],
     };
 
-    const widgetItems = widgets.map((widget) => ({
-      id: widgetId(widget),
-      name: widget.displayName,
-      group: widget.groupName ?? messages.otherGroup,
-    }));
-
     const nonce = randomBytes(16).toString("base64");
     const scriptUri = this.view.webview.asWebviewUri(
       vscode.Uri.joinPath(
@@ -189,7 +183,7 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
     );
 
     const previewData = JSON.stringify({
-      widgets: widgetItems,
+      widgets: [],
       selectedId: widgetId(selected),
       translations: {
         searchWidgets: messages.searchWidgets,
@@ -203,6 +197,7 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
         noControls: messages.noControls,
         defaultOption: messages.defaultOption,
         noneOption: messages.noneOption,
+        otherGroup: messages.otherGroup,
       },
     }).replaceAll("<", "\\u003c");
 

@@ -3,7 +3,9 @@ const vscode = acquireVsCodeApi();
 const previewData = JSON.parse(
   document.getElementById("preview-data").textContent,
 );
-const { translations, widgets, selectedId } = previewData;
+const { translations, selectedId } = previewData;
+let widgets = previewData.widgets;
+let selectedWidgetId = selectedId;
 const topSplitter = document.getElementById("top-splitter");
 const bottomSplitter = document.getElementById("bottom-splitter");
 const iframe = document.querySelector("iframe");
@@ -64,20 +66,18 @@ themeControl.addEventListener("change", () => {
   sendTheme();
 });
 
-iframe.addEventListener("load", sendTheme);
+iframe.addEventListener("load", () => {
+  sendTheme();
+  iframe.contentWindow.postMessage(
+    JSON.stringify({ type: "requestRegistry" }),
+    "*",
+  );
+});
 
 new MutationObserver(sendTheme).observe(document.body, {
   attributes: true,
   attributeFilter: ["class"],
 });
-
-const groups = new Map();
-
-// Group widgets once so search rendering only needs to filter the cached structure.
-for (const preview of widgets) {
-  if (!groups.has(preview.group)) groups.set(preview.group, []);
-  groups.get(preview.group).push(preview);
-}
 
 const selectWidget = (id) => {
   // A widget change invalidates control updates still awaiting a runner response.
@@ -87,6 +87,7 @@ const selectWidget = (id) => {
     "*",
   );
   vscode.postMessage({ command: "selectWidget", id });
+  selectedWidgetId = id;
 
   document.querySelectorAll(".preview-item").forEach((item) => {
     item.classList.toggle("active", item.dataset.id === id);
@@ -289,47 +290,104 @@ window.addEventListener("message", (event) => {
 
   if (message?.type === "previewControls") {
     renderControls(message.controls);
+  } else if (message?.type === "previewRegistry") {
+    if (!Array.isArray(message.widgets)) return;
+
+    widgets = message.widgets
+      .filter(
+        (preview) =>
+          typeof preview?.id === "string" &&
+          typeof preview?.name === "string" &&
+          Array.isArray(preview?.groups),
+      )
+      .map((preview) => ({
+        id: preview.id,
+        name: preview.name,
+        groups:
+          preview.groups.length > 0
+            ? preview.groups
+            : [translations.otherGroup],
+      }));
+    renderTree(searchInput.value);
   }
 });
 
-// Rebuild the grouped widget tree for the current search query.
+const createGroupNode = () => ({ children: new Map(), widgets: [] });
+
+const buildGroupTree = (previews) => {
+  const root = createGroupNode();
+
+  for (const preview of previews) {
+    let node = root;
+    for (const groupName of preview.groups) {
+      if (!node.children.has(groupName)) {
+        node.children.set(groupName, createGroupNode());
+      }
+      node = node.children.get(groupName);
+    }
+    node.widgets.push(preview);
+  }
+
+  return root;
+};
+
+const countWidgets = (node) => {
+  let count = node.widgets.length;
+  for (const child of node.children.values()) count += countWidgets(child);
+  return count;
+};
+
+const renderGroup = (parent, groupName, node, depth, searching) => {
+  const details = document.createElement("details");
+  details.className = "preview-group";
+  details.style.setProperty("--tree-depth", depth);
+  details.open = searching || nodeContainsSelected(node);
+
+  const summary = document.createElement("summary");
+  summary.innerHTML =
+    '<span class="group-name"></span><span class="count"></span>';
+  summary.querySelector(".group-name").textContent = groupName;
+  summary.querySelector(".count").textContent = countWidgets(node);
+  details.append(summary);
+
+  for (const preview of node.widgets) {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className =
+      "preview-item" + (preview.id === selectedWidgetId ? " active" : "");
+    item.style.setProperty("--tree-depth", depth);
+    item.dataset.id = preview.id;
+    item.textContent = preview.name;
+    item.addEventListener("click", () => selectWidget(preview.id));
+    details.append(item);
+  }
+
+  for (const [childName, child] of node.children) {
+    renderGroup(details, childName, child, depth + 1, searching);
+  }
+
+  parent.append(details);
+};
+
+const nodeContainsSelected = (node) =>
+  node.widgets.some((preview) => preview.id === selectedWidgetId) ||
+  [...node.children.values()].some(nodeContainsSelected);
+
+// Rebuild the nested group tree for the current search query.
 const renderTree = (query = "") => {
   previewTree.replaceChildren();
   const normalizedQuery = query.trim().toLocaleLowerCase();
 
-  for (const [groupName, groupWidgets] of groups) {
-    const visible = groupWidgets.filter((preview) =>
-      (preview.name + " " + groupName)
-        .toLocaleLowerCase()
-        .includes(normalizedQuery),
-    );
+  const visible = widgets.filter((preview) =>
+    [preview.name, ...preview.groups]
+      .join(" ")
+      .toLocaleLowerCase()
+      .includes(normalizedQuery),
+  );
+  const root = buildGroupTree(visible);
 
-    if (visible.length === 0) continue;
-
-    const details = document.createElement("details");
-    details.open =
-      normalizedQuery.length > 0 ||
-      visible.some((preview) => preview.id === selectedId);
-
-    const summary = document.createElement("summary");
-    summary.innerHTML =
-      '<span class="group-name"></span><span class="count"></span>';
-    summary.querySelector(".group-name").textContent = groupName;
-    summary.querySelector(".count").textContent = visible.length;
-    details.append(summary);
-
-    for (const preview of visible) {
-      const item = document.createElement("button");
-      item.type = "button";
-      item.className =
-        "preview-item" + (preview.id === selectedId ? " active" : "");
-      item.dataset.id = preview.id;
-      item.textContent = preview.name;
-      item.addEventListener("click", () => selectWidget(preview.id));
-      details.append(item);
-    }
-
-    previewTree.append(details);
+  for (const [groupName, node] of root.children) {
+    renderGroup(previewTree, groupName, node, 0, normalizedQuery.length > 0);
   }
 };
 

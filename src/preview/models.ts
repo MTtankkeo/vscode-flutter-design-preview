@@ -7,8 +7,6 @@ export interface PreviewBuilder {
 /** Metadata required to import, display, and instantiate a preview widget. */
 export interface PreviewWidget {
   className: string;
-  displayName: string;
-  groupName?: string;
   file: string;
 }
 

@@ -8,8 +8,11 @@ abstract class PreviewWidget {
   /// The label shown for this entry in the Flutter Design Preview list.
   String get displayName;
 
-  /// An optional group used to organize related entries.
-  String? get groupName => null;
+  /// The nested group path used to organize this entry, from outer to inner.
+  ///
+  /// For example, `['Buttons', 'Primary']` places the entry in the Primary
+  /// group nested below Buttons. An empty list uses the default fallback group.
+  List<String> get groups => [];
 
   /// Builds the widget displayed in the Flutter Design Preview canvas.
   Widget build(BuildContext context);

@@ -140,11 +140,6 @@ function samePreviewSource(
 
   return left.widgets.every((widget, index) => {
     const other = right.widgets[index];
-    return (
-      widget.className === other.className &&
-      widget.displayName === other.displayName &&
-      widget.groupName === other.groupName &&
-      widget.file === other.file
-    );
+    return widget.className === other.className && widget.file === other.file;
   });
 }

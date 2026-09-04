@@ -34,7 +34,7 @@ export class PreviewSourceDiscovery {
     return undefined;
   }
 
-  /** Extracts PreviewWidget subclasses and their display metadata from Dart sources. */
+  /** Extracts PreviewWidget subclasses needed to generate imports and instances. */
   private async findWidgets(files: string[]): Promise<PreviewWidget[]> {
     const widgets: PreviewWidget[] = [];
     const classPattern = /class\s+([A-Za-z]\w*)\s+extends\s+PreviewWidget\b/g;
@@ -43,25 +43,12 @@ export class PreviewSourceDiscovery {
       const source = await fs.readFile(file, "utf8");
       const matches = [...source.matchAll(classPattern)];
 
-      for (let index = 0; index < matches.length; index += 1) {
-        const match = matches[index];
+      for (const match of matches) {
         const className = match[1];
-        const end = matches[index + 1]?.index ?? source.length;
-        const classSource = source.slice(match.index, end);
-
-        const displayName =
-          /String\s+get\s+displayName\s*=>\s*['"]([^'"]+)['"]/.exec(
-            classSource,
-          )?.[1] ?? className;
-
-        const groupName =
-          /String\??\s+get\s+groupName\s*=>\s*['"]([^'"]+)['"]/.exec(
-            classSource,
-          )?.[1];
-
-        widgets.push({ className, displayName, groupName, file });
+        widgets.push({ className, file });
       }
     }
+
     return widgets;
   }
 }

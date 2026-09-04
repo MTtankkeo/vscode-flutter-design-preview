@@ -30,6 +30,7 @@ class PreviewColorControl extends PreviewControl<Color> {
     if (rgb == null || hex.length != 6) {
       throw FormatException('Invalid color: $value');
     }
+
     return Color(0xff000000 | rgb);
   }
 }

@@ -57,7 +57,7 @@ summary {
   display: flex;
   align-items: center;
   min-height: 26px;
-  padding: 0 8px;
+  padding: 0 8px 0 calc(8px + var(--tree-depth, 0) * 12px);
   font-weight: 600;
   cursor: pointer;
   user-select: none;
@@ -86,7 +86,7 @@ summary::marker {
   box-sizing: border-box;
   width: 100%;
   border: 0;
-  padding: 4px 12px 4px 28px;
+  padding: 4px 12px 4px calc(28px + var(--tree-depth, 0) * 12px);
   color: inherit;
   background: transparent;
   font: inherit;

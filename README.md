@@ -57,7 +57,7 @@ class PrimaryButtonPreview extends PreviewWidget {
   String get displayName => 'Primary';
 
   @override
-  String get groupName => 'Button';
+  List<String> get groups => ['Buttons', 'Primary'];
 
   @override
   Widget build(BuildContext context) {
