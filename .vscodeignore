@@ -7,3 +7,5 @@ tsconfig.json
 media/flutter/.dart_tool/**
 media/flutter/pubspec.yaml
 media/flutter/pubspec.lock
+packages/**/.dart_tool/**
+packages/**/build/**
