@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/MTtankkeo/vscode-flutter-design-preview.git"
   },
-  "icon": "media/icons/flutter.png",
+  "icon": "media/icons/logo.png",
   "license": "MIT",
   "engines": {
     "vscode": "^1.95.0"
@@ -17,14 +17,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "flutterWidgetPreview.open",
+        "command": "FlutterDesignPreview.open",
         "title": "%command.open%"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "flutterWidgetPreview.open",
+          "command": "FlutterDesignPreview.open",
           "when": "resourceFilename == pubspec.yaml",
           "group": "navigation"
         }
@@ -33,18 +33,18 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "flutterWidgetPreview",
+          "id": "FlutterDesignPreview",
           "title": "%viewContainer.title%",
-          "icon": "media/icons/flutter_preview.svg"
+          "icon": "media/icons/icon.svg"
         }
       ]
     },
     "views": {
-      "flutterWidgetPreview": [
+      "FlutterDesignPreview": [
         {
-          "id": "flutterWidgetPreview.view",
+          "id": "FlutterDesignPreview.view",
           "name": "%viewContainer.title%",
-          "icon": "media/icons/flutter_preview.svg",
+          "icon": "media/icons/icon.svg",
           "type": "webview"
         }
       ]

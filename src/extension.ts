@@ -19,13 +19,13 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // Connect the contributed Open command to the preview workflow.
   const openCommand = vscode.commands.registerCommand(
-    "flutterWidgetPreview.open",
+    "FlutterDesignPreview.open",
     (resource?: vscode.Uri) => application.open(resource),
   );
 
   // Let the contributed sidebar view obtain its content from this provider.
   const viewRegistration = vscode.window.registerWebviewViewProvider(
-    "flutterWidgetPreview.view",
+    "FlutterDesignPreview.view",
     view,
     {
       webviewOptions: {

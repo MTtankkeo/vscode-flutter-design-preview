@@ -39,7 +39,7 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
 
     view.webview.onDidReceiveMessage((message) => {
       if (message?.command === "openPreview") {
-        void vscode.commands.executeCommand("flutterWidgetPreview.open");
+        void vscode.commands.executeCommand("FlutterDesignPreview.open");
       } else if (message?.command === "selectWidget") {
         this.selectWidget(message.id);
       }
@@ -121,7 +121,7 @@ export class PreviewViewProvider implements vscode.WebviewViewProvider {
   /** Opens the extension's Activity Bar container when it is currently hidden. */
   private async reveal(): Promise<void> {
     await vscode.commands.executeCommand(
-      "workbench.view.extension.flutterWidgetPreview",
+      "workbench.view.extension.FlutterDesignPreview",
     );
   }
 
