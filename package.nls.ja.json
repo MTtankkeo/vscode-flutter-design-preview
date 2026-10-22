@@ -2,5 +2,5 @@
   "extension.displayName": "Design Preview for Flutter",
   "extension.description": "VS Code 内で Flutter ウィジェットをリアルタイムに開発、テスト、操作できます。",
   "command.open": "Flutter Design Preview: 開く",
-  "viewContainer.title": "Flutter Design Preview"
+  "viewContainer.title": "Design Preview for Flutter"
 }
