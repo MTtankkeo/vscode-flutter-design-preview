@@ -2,7 +2,7 @@
 
 library flutter_design_preview_runner;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_design_preview/flutter_design_preview.dart';
 
 // {{builderImport}}
